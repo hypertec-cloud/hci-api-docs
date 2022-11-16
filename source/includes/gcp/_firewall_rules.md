@@ -186,10 +186,7 @@ Required | &nbsp;
 ------- | -----------
 `network`<br/>*string* | URL of the network resource for this firewall rule.
 `range`<br/>*Array[string]* | The source or destination range depending on the `direction` specified. The firewall rule applies only to traffic that has a source/destination IP address in these ranges. These ranges must be expressed in CIDR format.
-`all`<br/>*boolean* | Specifies if the firewall rule should allow all or some protocols and ports. This parameter overwrites the `tcpPorts`, `udpPorts` and `protocols` parameters.
-`tcpPorts`<br/>*Array[string]* | The tcp ports on which to apply the rule. These must be in the range [0, 65535).
-`udpPorts`<br/>*Array[string]* | The udp ports on which to apply the rule. These must be in the range [0, 65535).
-`protocols`<br/>*Array[string]* | Supported protocols are: icmp, esp, ah, sctp, ipip or a valid [decimal IP protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+`all`<br/>*boolean* | Specifies if the firewall rule action should apply to all or some protocols and ports. This parameter overwrites the `tcpPorts`, `udpPorts` and `protocols` parameters and at least one of `tcpPorts`, `udpPorts` and `protocols` must be specified if this parameter is false.
 
 Optional | &nbsp;
 ------- | -----------
@@ -197,6 +194,9 @@ Optional | &nbsp;
 `action`<br/>*string* | The firewall rule type: 'allow' (allow traffic) or 'deny' (deny traffic). The default value is 'allow'.
 `priority`<br/>*string* | Priority for this rule. This is an integer between 0 and 65535, both inclusive. The default value is 1000.
 `direction`<br/>*string* | Direction of traffic to which this firewall applies, either INGRESS or EGRESS. The default is INGRESS.
+`tcpPorts`<br/>*Array[string]* | The tcp ports on which to apply the rule. These must be in the range [0, 65535).
+`udpPorts`<br/>*Array[string]* | The udp ports on which to apply the rule. These must be in the range [0, 65535).
+`protocols`<br/>*Array[string]* | Supported protocols are: icmp, esp, ah, sctp, ipip or a valid [decimal IP protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 
 <!-------------------- DELETE A FIREWALL RULE -------------------->
 
