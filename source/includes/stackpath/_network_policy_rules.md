@@ -68,7 +68,7 @@ Attributes | &nbsp;
 `sources`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
 `action`<br/>*string* | The network policy rule action: `ALLOW` (allow traffic) or `BLOCK` (deny traffic).
 `protocol`<br/>*string* | Supported protocols are: `TCP`, `UDP`, `TCP_UDP`, `ESP`, `AH`, `ICMP` or `GRE`.
-`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic should allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
+`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic will be allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
 
 <!-------------------- GET A NETWORK POLICY RULE -------------------->
 
@@ -114,7 +114,7 @@ Attributes | &nbsp;
 `sources`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
 `action`<br/>*string* | The network policy rule action: `ALLOW` (allow traffic) or `BLOCK` (deny traffic).
 `protocol`<br/>*string* | Supported protocols are: `TCP`, `UDP`, `TCP_UDP`, `ESP`, `AH`, `ICMP` or `GRE`.
-`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic should allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
+`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic will be allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
 
 <!-------------------- CREATE A NETWORK POLICY RULE -------------------->
 
@@ -152,7 +152,7 @@ Required | &nbsp;
 `type`<br/>*string* | The type of network policy rule. Supported types are: `INBOUND` (Ingress) and `OUTBOUND` (Egress).
 `action`<br/>*string* | The network policy rule action: `ALLOW` (allow traffic) or `BLOCK` (block traffic).
 `sources`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
-`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic should allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
+`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic will be allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
 
 <!-------------------- DELETE A NETWORK POLICY RULE -------------------->
 
@@ -204,4 +204,4 @@ Required | &nbsp;
 `sources`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
 `action`<br/>*string* | The network policy rule action: `ALLOW` (allow traffic) or `BLOCK` (deny traffic).
 `protocol`<br/>*string* | Supported protocols are: `TCP`, `UDP`, `TCP_UDP`, `ESP` or `AH`.
-`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic should allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
+`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic will be allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
