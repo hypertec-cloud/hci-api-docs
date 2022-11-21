@@ -24,10 +24,10 @@ curl -X GET \
       "id": "f89e80ed-1208-4607-82b2-df2779d90f21/701825869",
       "description": "Allow ICMP packets",
       "type": "INBOUND",
-      "source": ["0.0.0.0/0"],
+      "sources": ["0.0.0.0/0"],
       "action": "INBOUND",
       "protocol": "ICMP",
-      "portRange": ""
+      "portRanges": ["80"]
     },
     {
       "stackId": "bcc60174-50e6-44e4-bd45-463845124d87",
@@ -36,10 +36,10 @@ curl -X GET \
       "id": "2ac958f2-0976-4de9-95f6-3546fc10f8d0/INBOUND/-812331665/0",
       "description": "custom-inbound",
       "type": "INBOUND",
-      "source": ["192.168.0.1/32"],
+      "sources": ["192.168.0.1/32"],
       "action": "ALLOW",
       "protocol": "TCP",
-      "portRange": "80"
+      "portRanges": ["80"]
     }
   ],
   "metadata": {
@@ -65,10 +65,10 @@ Attributes | &nbsp;
 `networkPolicyId`<br/>*UUID* | The UUID of the network policy to which the network policy rule belongs.
 `description`<br/>*string* | A summary of what this rule does or a name of this rule. It is highly recommended to give a unique description to easily identify a rule.
 `type`<br/>*string* | The type of network policy rule, either `INBOUND` or `OUTBOUND`.
-`source`<br/>*Array[string]* | the list of subnets that will define all the IPs allowed or denied by this rule.
+`sources`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
 `action`<br/>*string* | The network policy rule action: `ALLOW` (allow traffic) or `BLOCK` (deny traffic).
 `protocol`<br/>*string* | Supported protocols are: `TCP`, `UDP`, `TCP_UDP`, `ESP`, `AH`, `ICMP` or `GRE`.
-`portRange`<br/>*string* | This specifies on which ports traffic will be allowed or denied by this rule. It can be a range of ports separated by a hyphen.
+`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic should allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
 
 <!-------------------- GET A NETWORK POLICY RULE -------------------->
 
@@ -91,10 +91,10 @@ curl -X GET \
     "id": "2ac958f2-0976-4de9-95f6-3546fc10f8d0/INBOUND/-812331665/0",
     "description": "custom-inbound",
     "type": "INBOUND",
-    "source": ["192.168.0.1/32"],
+    "sources": ["192.168.0.1/32"],
     "action": "ALLOW",
     "protocol": "TCP",
-    "portRange": "80"
+    "portRanges": ["80"]
   }
 }
 ```
@@ -111,10 +111,10 @@ Attributes | &nbsp;
 `networkPolicyId`<br/>*UUID* | The UUID of the network policy to which the network policy rule belongs.
 `description`<br/>*string* | A summary of what this rule does or a name of this rule. It is highly recommended to give a unique description to easily identify a rule.
 `type`<br/>*string* | The type of network policy rule, either `INBOUND` or `OUTBOUND`.
-`source`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
+`sources`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
 `action`<br/>*string* | The network policy rule action: `ALLOW` (allow traffic) or `BLOCK` (deny traffic).
 `protocol`<br/>*string* | Supported protocols are: `TCP`, `UDP`, `TCP_UDP`, `ESP`, `AH`, `ICMP` or `GRE`.
-`portRange`<br/>*string* | This specifies on which ports traffic will be allowed or denied by this rule. It can be a range of ports separated by a hyphen.
+`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic should allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
 
 <!-------------------- CREATE A NETWORK POLICY RULE -------------------->
 
@@ -135,8 +135,8 @@ curl -X POST \
   "protocol": "TCP",
   "type": "INBOUND",
   "action": "ALLOW",
-  "source": ["0.0.0.0/0"],
-  "portRange": "8080"
+  "sources": ["0.0.0.0/0"],
+  "portRanges": ["8080"]
 }
 ```
 
@@ -151,8 +151,8 @@ Required | &nbsp;
 `protocol`<br/>*string* | Supported protocols are: `TCP`, `UDP`, `TCP_UDP`, `ESP` and `AH`. 
 `type`<br/>*string* | The type of network policy rule. Supported types are: `INBOUND` (Ingress) and `OUTBOUND` (Egress).
 `action`<br/>*string* | The network policy rule action: `ALLOW` (allow traffic) or `BLOCK` (block traffic).
-`source`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
-`portRange`<br/>*string* | This specifies on which ports traffic will be allowed or denied by this rule. It can be a range of ports separated by a hyphen.
+`sources`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
+`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic should allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
 
 <!-------------------- DELETE A NETWORK POLICY RULE -------------------->
 
@@ -185,10 +185,10 @@ curl -X PUT \
   "description": "npr_cloudmc_isk",
   "workloadId": "6ca53aff-8930-46d6-ba86-afbeb0b46bb7",
   "type": "INBOUND",
-  "source": ["192.168.0.1/32"],
+  "sources": ["192.168.0.1/32"],
   "action": "ALLOW",
   "protocol": "TCP",
-  "portRange": "80"
+  "portRanges": ["80"]
 }
 ```
 
@@ -201,7 +201,7 @@ Required | &nbsp;
 `description`<br/>*string* | A summary of what this rule does or a name of this rule. It is highly recommended to give a unique description to easily identify a rule.
 `workloadId`<br/>*UUID* | The UUID of the workload to which the network policy rule is applied. Corresponds to the first workload ID in the network policy's list of instance selectors.
 `type`<br/>*string* | The type of network policy rule. Supported types are: `INBOUND` (Ingress) and `OUTBOUND` (Egress).
-`source`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
+`sources`<br/>*Array[string]* | The list of subnets that will define all the IPs allowed or denied by this rule.
 `action`<br/>*string* | The network policy rule action: `ALLOW` (allow traffic) or `BLOCK` (deny traffic).
 `protocol`<br/>*string* | Supported protocols are: `TCP`, `UDP`, `TCP_UDP`, `ESP` or `AH`.
-`portRange`<br/>*string* | This specifies on which ports traffic will be allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`. 
+`portRanges`<br/>*Array[string]* | The list of port ranges on which traffic should allowed or denied by this rule. It can be a range of ports separated by a hyphen. Not required for protocol for `ESP` or `AH`.
