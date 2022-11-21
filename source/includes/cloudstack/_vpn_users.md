@@ -51,6 +51,14 @@ curl -X POST \
     }
 }
 ```
+> The above command returns a JSON structured like this:
+
+```json
+{
+  "taskId": "3e4d4466-ce4b-404b-ada5-ee5a3fb76f4e",
+  "taskStatus": "PENDING"
+}
+```
 
 <code>POST /services/<a href="#administration-service-connections">:service_code</a>/<a href="#administration-environments">:environment_name</a>/vpnusers</code>
 
