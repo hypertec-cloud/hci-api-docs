@@ -234,3 +234,71 @@ Optional | &nbsp;
 ------ | -----------
 `name`<br/>*string* | A ***unique name*** to be given to the newly created **snapshot**. If this parameter is not provided then by default the concatenation of the *instance name*, *volume name* and the *current timestamp* is used. <br/><br/>*Eg:*<br/>&nbsp;&nbsp;&nbsp;&nbsp;*[instance.name]\_[volume.name]\_[timestamp]*<br/>&nbsp;&nbsp;&nbsp;&nbsp;***i-root-6E7_RapidVol_20190117153537***
 `rapid`<br/>*boolean* | Indicates the ***location*** as to where the snapshot is supposed to be made. <br/><br/>Setting this to **true** will ensure that the snapshot is created in the same primary storage as where the volume is. If **false**, then the snapshot is created in a secondary storage. <br/><br/>*Note: Rapid snapshots enable much faster volume and template creation than from regular snapshots, but at a higher expense. Not all volumes support the* **rapid** *snapshot option.*
+
+#### Resize volumes 
+
+***To resize a data volume:***
+```shell
+
+curl --request POST \
+  --url 'https://cloudmc_endpoint/api/v2/services/cloudstack-aaaa/acs-env-1/volumes/ed30cd74-3e83-473c-9fe3-6b1cb1652f85?operation=resize' \
+  --header 'Content-Type: application/json' \
+  --header 'mc-api-key: your_api_key' \
+  --data 'request-body'
+```
+> Request body example:
+
+```json
+{
+	"sizeInGb": 12,
+	"diskOfferingId": "fd78763c-f33a-43f3-b1e3-63bf59a48350"
+}
+```
+
+> The above command returns a JSON structured like this:
+
+```json
+{
+	"taskId": "32ea1825-8291-4730-8d06-cee5f7e969f8",
+	"taskStatus": "PENDING"
+}
+```
+
+<code>POST /services/<a href="#administration-service-connections">:service_code</a>/<a href="#administration-environments">:environment_name</a>/volumes/:id?operation=resize</code>
+
+Required | &nbsp;
+------- | -----------
+sizeInGb<br/>*int* | Size to which you want to resize the data volume to
+diskOfferingId<br/> *UUID* | The [disk offering](#cloudstack-disk-offerings) associated with the volume
+
+***To resize a root volume:***
+
+```shell
+curl --request POST \
+  --url 'https://cloudmc_endpoint/api/v2/services/cloudstack-aaaa/acs-env-1/volumes/68b7b465-652e-4f8d-958e-a712427a69a5?operation=resize' \
+  --header 'Content-Type: application/json' \
+  --header 'mc-api-key: your_api_key' \
+  --data 'request-body'
+```
+> Request body example:
+
+```json
+{
+	"sizeInGb": 40,
+}
+```
+
+> The above command returns a JSON structured like this:
+
+```json
+{
+	"taskId": "68b7b465-652e-4f8d-958e-a712427a69a5",
+	"taskStatus": "PENDING"
+}
+```
+
+<code>POST /services/<a href="#administration-service-connections">:service_code</a>/<a href="#administration-environments">:environment_name</a>/volumes/:id?operation=resize</code>
+
+Required | &nbsp;
+------- | -----------
+sizeInGb<br/>*int* | Size to which you want to resize the root volume to
