@@ -48,8 +48,8 @@ If you'd prefer to use Docker, instructions are available [in the wiki](https://
 
 TODO: update with instructions on deploying the docs with jenkins
 
-1. Make sure your changes have been merged into `cmc-dev`
-2. `git checkout cmc-dev`
+1. Make sure your changes have been merged into `hci-dev`
+2. `git checkout hci-dev`
 3. `./deploy.sh`
 
 The docs should go live once GitHub processes the new `gh-pages` branch contents.
