@@ -8,14 +8,11 @@ language_tabs: # must be one of https://git.io/vQNgJ
 includes:
   - getting_started
   - administration
-  - administration/service_connections
   - administration/organizations
   - administration/users
-  - administration/roles
   - administration/additional_roles
   - administration/environments 
   - administration/usage
-  - administration/authentication
   - administration/quotas
   - administration/activity_log
   - cloudstack
@@ -48,5 +45,6 @@ includes:
   - cloudstack/compute_offerings
   - cloudstack/disk_offerings
   - cloudstack/zones # Zones section
+
 search: true
 ---
