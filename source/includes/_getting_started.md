@@ -1,21 +1,21 @@
 # Getting started
 
-The CloudMC API allows you to manage your environments and provision resources in a simple programmatic way using standard HTTP requests.
+The Hypertec Cloud API allows you to manage your environments and provision resources in a simple programmatic way using standard HTTP requests.
 
 The API is  [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer). Responses, successful or not, are returned in [JSON](http://www.json.org/). Request bodies must be [JSON](http://www.json.org/), and should be made over SSL.
 
-API endpoint : `https://cloudmc_endpoint/api/v2`
+API endpoint : `https://hypertec.cloud/api/v2`
 
 ## Authentication
 
 ```shell
 ## To authenticate, add a header
 ## Make sure to replace `your_api_key` with your API key.
-curl "https://cloudmc_endpoint/api/v2/organizations" \
+curl "https://hypertec.cloud/api/v2/organizations" \
    -H "MC-Api-Key: your_api_key"
 ```
 
-API endpoints are secured by the same role-based access control (RBAC) as the CloudMC portal. To identify who is making the requests, it is required to add a header to your HTTP requests:
+API endpoints are secured by the same role-based access control (RBAC) as the Hypertec Cloud portal. To identify who is making the requests, it is required to add a header to your HTTP requests:
 
 `MC-Api-Key: your_api_key`
 
@@ -23,7 +23,7 @@ API endpoints are secured by the same role-based access control (RBAC) as the Cl
 You must replace <code>your_api_key</code> with your personal API key.
 </aside>
 
-The API key is found from the API keys section under the user profile menu. If you don't see CloudMC API keys section, contact your system administrator as you may not have the permission to see that section. **Your API key carries the same privileges as your CloudMC account, so be sure to keep it secret**. If you think your API has been compromised, regenerate your API key from the API keys section.
+The API key is found from the API keys section under the user profile menu. If you don't see Hypertec Cloud API keys section, contact your system administrator as you may not have the permission to see that section. **Your API key carries the same privileges as your Hypertec Cloud account, so be sure to keep it secret**. If you think your API has been compromised, regenerate your API key from the API keys section.
 
 ## Working with sub-organizations
 
@@ -31,10 +31,10 @@ The API key is found from the API keys section under the user profile menu. If y
 
 When using the API in an organization other than your own, make sure to specify the `org_id` query parameter in your request. This looks like:
 
-<code>https://cloudmc_endpoint/api/v2/users&<strong>org_id=:org_id</strong></code>
+<code>https://hypertec.cloud/api/v2/users&<strong>org_id=:org_id</strong></code>
 
 ## HTTP verbs
-The CloudMC API can be used by any tool that is fluent in HTTP. The appropriate HTTP method should be used depending on the desired action.
+The Hypertec Cloud API can be used by any tool that is fluent in HTTP. The appropriate HTTP method should be used depending on the desired action.
 
 Verbs | Purpose
 ------ | -------
@@ -139,7 +139,7 @@ Each error has additional fields to describe it :
 
 Attributes | &nbsp;
 --- | ---
-`code` | The CloudMC error code.
+`code` | The Hypertec Cloud error code.
 `message` | A human readable explanation of the error code.
 `context` | Additional information.
 
@@ -198,7 +198,7 @@ Some operations take longer to execute, and to avoid blocking on the response un
 }
 ```
 
-`GET https://cloudmc_endpoint/api/v2/tasks/:id`
+`GET https://hypertec.cloud/api/v2/tasks/:id`
 
 A task has three different status: `PENDING`, `FAILED` and `SUCCESS`. On a successful completion of the task (i.e. it's in the `SUCCESS` state), the response will contain a `result` field which will contain the result of the operation. It is important to note that we don't persist our task, a task will only stay alive for 30 minutes (in general).
 

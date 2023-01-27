@@ -11,7 +11,7 @@ Environments allow you to manage resources of a specific service and to manage y
 
 ```shell
 # Retrieve visible environments
-curl "https://cloudmc_endpoint/api/v2/environments" \
+curl "https://hypertec.cloud/api/v2/environments" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -78,7 +78,7 @@ Attributes | &nbsp;
 ```shell
 # Retrieve visible environment
 
-curl "https://cloudmc_endpoint/api/v2/environments/487a2745-bb8a-44bc-adb1-e3b048f6def2" \
+curl "https://hypertec.cloud/api/v2/environments/487a2745-bb8a-44bc-adb1-e3b048f6def2" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -148,7 +148,7 @@ Environments are created asynchronously on the underlying service. When creating
 ```shell
 # Create an environment
 
-curl -X POST "https://cloudmc_endpoint/api/v2/environments" \
+curl -X POST "https://hypertec.cloud/api/v2/environments" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"
@@ -238,7 +238,7 @@ If the membership mode is changed, users will also be added or removed asynchron
 
 ```shell
 # Update an environment
-curl -X POST "https://cloudmc_endpoint/api/v2/environments/f9dea588-d7ab-4f42-b6e6-4b85f273f3db" \
+curl -X POST "https://hypertec.cloud/api/v2/environments/f9dea588-d7ab-4f42-b6e6-4b85f273f3db" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"
@@ -324,7 +324,7 @@ If deleting an environment fails in the underlying service, subsequent delete at
 
 ```shell
 # Delete an environment
-curl "https://cloudmc_endpoint/api/v2/environments/f9dea588-d7ab-4f42-b6e6-4b85f273f3db" \
+curl "https://hypertec.cloud/api/v2/environments/f9dea588-d7ab-4f42-b6e6-4b85f273f3db" \
    -X DELETE -H "MC-Api-Key: your_api_key"
 
 # Response body example
@@ -356,7 +356,7 @@ Attributes | &nbsp;
 ```shell
 # Retrieve visible user
 
-curl "https://cloudmc_endpoint/api/v2/environments/[env-id]/members" \
+curl "https://hypertec.cloud/api/v2/environments/[env-id]/members" \
    -H "MC-Api-Key: your_api_key"
 
 # Response body example
@@ -411,7 +411,7 @@ You will need to either be owner on the environment or have the `Environments: O
 
 ```shell
 # Add an environment member
-curl -X POST "https://cloudmc_endpoint/api/v2/environments/[environment-id]/members" \
+curl -X POST "https://hypertec.cloud/api/v2/environments/[environment-id]/members" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "[request_body]"
@@ -454,7 +454,7 @@ You will need to either be owner on the environment or have the `Environments: O
 
 ```shell
 # Update an environment member
-curl -X PUT "https://cloudmc_endpoint/api/v2/environments/[environment-id]/members/[user-id]" \
+curl -X PUT "https://hypertec.cloud/api/v2/environments/[environment-id]/members/[user-id]" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "[request_body]"
@@ -488,7 +488,7 @@ If deleting an member fails in the underlying environment service, subsequent de
 
 ```shell
 # Remove a member from an environment
-curl -X DELETE "https://cloudmc_endpoint/api/v2/environments/[environment-id]/members/[user-id]" \
+curl -X DELETE "https://hypertec.cloud/api/v2/environments/[environment-id]/members/[user-id]" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" 
 
@@ -517,7 +517,7 @@ You will need to either be owner on the environment or have the `Environments: O
 
 ```shell
 # Update default environment membership
-curl -X PUT "https://cloudmc_endpoint/api/v2/environments/[environment-id]/membership" \
+curl -X PUT "https://hypertec.cloud/api/v2/environments/[environment-id]/membership" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "[request_body]"

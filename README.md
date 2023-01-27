@@ -1,6 +1,6 @@
-# CloudMC API documentation
+# Hypertec Cloud API documentation
 
-This repository contains the CloudMC API documentation
+This repository contains the Hypertec Cloud API documentation
 
 ## Writing new documentation
 
@@ -21,14 +21,14 @@ Clone this repository
 Option 1: use docker
 
 ```shell
-cd /path/to/repo/cloudmc-api-docs/
+cd /path/to/repo/hci-api-docs/
 docker compose up -d
 ```
 
 Option 2: local or vagrant
 
 ```shell
-cd /path/to/repo/cloudmc-api-docs/slate
+cd /path/to/repo/hci-api-docs/slate
 
 # either run locally
 bundle install
