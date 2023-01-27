@@ -1,5 +1,5 @@
 ## Organizations
-Organizations are the largest logical grouping of users, environments and resources available in CloudMC. Each organization is isolated from other organizations. It has its own subdomain (`[entryPoint].CloudMC`) and is protected by its own customizable system [roles](#administration-roles). An administrator that must manage its sub-organizations environments or provisioned resources can do so by having the `Access other levels` permission. Additionally, provisioned resource usage is metered at the organization level facilitating cost tracking.
+Organizations are the largest logical grouping of users, environments and resources available in Hypertec Cloud. Each organization is isolated from other organizations. It has its own subdomain (`[entryPoint].Hypertec`) and is protected by its own customizable system [roles](#administration-roles). An administrator that must manage its sub-organizations environments or provisioned resources can do so by having the `Access other levels` permission. Additionally, provisioned resource usage is metered at the organization level facilitating cost tracking.
 
 
 <!-------------------- LIST ORGANIZATIONS -------------------->
@@ -11,7 +11,7 @@ Retrieves a list of organizations visible to the caller. In most cases, only the
 
 ```shell
 # Retrieve visible organizations
-curl "https://cloudmc_endpoint/api/v2/organizations" \
+curl "https://hypertec.cloud/api/v2/organizations" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -92,7 +92,7 @@ Attributes | &nbsp;
 `id`<br/>*UUID* | The id of the organization.
 `lineage`<br/>*string* | A string of comma-seperated UUIDs of the lineage of the organization.
 `name`<br/>*string* | The name of the organization.
-`entryPoint`<br/>*string* | The entry point of the organization is the subdomain of the organization in the CloudMC URL : `[entryPoint].CloudMC`.
+`entryPoint`<br/>*string* | The entry point of the organization is the subdomain of the organization in the Hypertec Cloud URL : `[entryPoint].Hypertec`.
 `billableStartDate`<br/>*string* | The billable start date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) of the organization.
 `creationDate`<br/>*string* | The date the organization was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 `isBillable`<br/>*boolean* | If the organization is billable this values is true, false otherwise.
@@ -121,7 +121,7 @@ Retrieve an organization's details.
 
 ```shell
 # Retrieve an organization
-curl "https://cloudmc_endpoint/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5" \
+curl "https://hypertec.cloud/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -206,7 +206,7 @@ Attributes | &nbsp;
 `id`<br/>*UUID* | The id of the organization.
 `lineage`<br/>*string* | A string of comma-seperated UUIDs of the lineage of the organization.
 `name`<br/>*string* | The name of the organization.
-`entryPoint`<br/>*string* | The entry point of the organization is the subdomain of the organization in the CloudMC URL :<br/>`[entryPoint].CloudMC`.
+`entryPoint`<br/>*string* | The entry point of the organization is the subdomain of the organization in the Hypertec Cloud URL :<br/>`[entryPoint].Hypertec`.
 `billableStartDate`<br/>*string* | The billable start date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) of the organization.
 `isBillable`<br/>*boolean* | If the organization is billable this values is true, false otherwise.
 `quotas`<br/>*Array[Quotas]* | A list of quotas that associated to the organization.
@@ -242,7 +242,7 @@ The task id returned in the response below can also be used to track the complet
 
 ```shell
 # Create an organization
-curl -X POST "https://cloudmc_endpoint/api/v2/organizations" \
+curl -X POST "https://hypertec.cloud/api/v2/organizations" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"
@@ -267,7 +267,7 @@ curl -X POST "https://cloudmc_endpoint/api/v2/organizations" \
 Required | &nbsp;
 ---- | ----
 `name`<br/>*string*  | The name of the organization. Must be between 2 and 50 (inclusive) and the first character must be alphanumeric.
-`entryPoint`<br/>*string* | The entry point of the organization is the subdomain of the organization in the CloudMC URL : `[entryPoint].CloudMC`.
+`entryPoint`<br/>*string* | The entry point of the organization is the subdomain of the organization in the Hypertec Cloud URL : `[entryPoint].Hypertec`.
 
 
 Optional | &nbsp;
@@ -335,7 +335,7 @@ The task id returned in the response below can also be used to track the complet
 
 ```shell
 # Update an organization
-curl -X PUT "https://cloudmc_endpoint/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5" \
+curl -X PUT "https://hypertec.cloud/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"
@@ -357,7 +357,7 @@ curl -X PUT "https://cloudmc_endpoint/api/v2/organizations/03bc22bd-adc4-46b8-98
 Optional | &nbsp;
 ---- | ----
 `name`<br/>*string*  | The name of the organization. Must be between 2 and 50 (inclusive) and the first character must be alphanumeric.
-`entryPoint`<br/>*string* | The entry point of the organization is the subdomain of the organization in the CloudMC URL : `[entryPoint].CloudMC`.
+`entryPoint`<br/>*string* | The entry point of the organization is the subdomain of the organization in the Hypertec Cloud URL : `[entryPoint]Hypertec.Cloud`.
 `serviceConnections`<br/>Array[[ServiceConnection](#administration-service-connections)] | A list of service connections for which the organization may provision resources. The caller must have access to all connections that are provided. <br/>_Read below (after the request parameter list) for more details._<br/>*required attributes of the service connection:* `id`
 `tags`<br/>*Array[object]* | Tags associated to the organization. Tags provided in the request cannot be system tags. Must have the `Reseller: Organizations metadata: Manage` permission. User cannot modify tags of their own (non-root) organization. <br/>*required* : `id` or `name`
 `resourceCommitments`</br>*Array[[ResourceCommitment](#administration-retrieve-a-resource-commitment)]* | The resource commitments applied on the organization.
@@ -439,7 +439,7 @@ Following an error response, subsequent delete attempts will be considered as a 
 
 ```shell
 # Delete an organization
-curl -X DELETE "https://cloudmc_endpoint/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5" \
+curl -X DELETE "https://hypertec.cloud/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5" \
    -H "MC-Api-Key: your_api_key"
 ```
 
@@ -469,7 +469,7 @@ Get a list of all verified domains on the specified organization.
 
 ```shell
 # Retrieve all verified domains
-curl "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/verified_domains" \
+curl "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/verified_domains" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -514,7 +514,7 @@ Attributes | &nbsp;
 `domain`<br/>*string* | The domain associated with the organization.
 `organization`<br/>*[Organization](#administration-organizations)* | The organization to which the verified domain belongs. *includes*:`id`,`name`, `entryPoint`.
 `id`<br/>*UUID* | The id of the verified domain.
-`verificationCode`<br/>*string* | The verification code for the domain. This is the value that should be added to the domain's DNS registration as a new TXT record. CloudMC will check on a recurring schedule if the TXT record has been added to the domain, and update the status to VERIFIED once found.
+`verificationCode`<br/>*string* | The verification code for the domain. This is the value that should be added to the domain's DNS registration as a new TXT record. Hypertec Cloud will check on a recurring schedule if the TXT record has been added to the domain, and update the status to VERIFIED once found.
 `status`<br/>*string* | The status of the domain ownership proof. Possible values are : VERIFIED, PENDING, ERROR.
 
 <!-------------------- CREATE VERIFIED DOMAIN -------------------->
@@ -526,7 +526,7 @@ Creates a new verified domain in the specified organization.
 
 ```shell
 # Create a verified domain
-curl -X POST "https://cloudmc_endpoint/api/v2/organizations87895f43-51c1-43cc-b987-7e301bf5b86a/verified_domains" \
+curl -X POST "https://hypertec.cloud/api/v2/organizations87895f43-51c1-43cc-b987-7e301bf5b86a/verified_domains" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"
@@ -554,7 +554,7 @@ Delete a specified domain on the organization.
 
 ```shell
 # Delete a verified domain
-curl -X DELETE "https://cloudmc_endpoint/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5/verified_domains/22d30872-8e90-43b5-b1ba-636bead42e34" \
+curl -X DELETE "https://hypertec.cloud/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5/verified_domains/22d30872-8e90-43b5-b1ba-636bead42e34" \
    -H "MC-Api-Key: your_api_key"
 ```
 
@@ -568,7 +568,7 @@ Retrieve the security settings for the organization.
 
 ```shell
 # Retrieve the organization's security settings
-curl "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/security_settings" \
+curl "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/security_settings" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -669,7 +669,7 @@ Attributes | &nbsp;
 
 ```shell
 # Update an organization's security settings
-curl -X PUT "https://cloudmc_endpoint/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5/security_settings" \
+curl -X PUT "https://hypertec.cloud/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5/security_settings" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"
@@ -758,7 +758,7 @@ Retrieve the password policy for the organization.
 
 ```shell
 # Retrieve the organization's own or inherited password policy.
-curl "https://cloudmc_endpoint/api/v2=2/organizations/e8d95716-26a9-4054-833e-81cd3a5155cd/password_policy" \
+curl "https://hypertec.cloud/api/v2=2/organizations/e8d95716-26a9-4054-833e-81cd3a5155cd/password_policy" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -809,7 +809,7 @@ Delete a password policy for an organization. Root reseller organization will no
 
 ```shell
 # Delete an organization
-curl -X DELETE "https://cloudmc_endpoint/api/v2/organizations/e8d95716-26a9-4054-833e-81cd3a5155cd/password_policy" \
+curl -X DELETE "https://hypertec.cloud/api/v2/organizations/e8d95716-26a9-4054-833e-81cd3a5155cd/password_policy" \
    -H "MC-Api-Key: your_api_key"
 ```
 
@@ -823,7 +823,7 @@ Get a list of Service connections that can be managed by the current user on the
 
 ```shell
 # Update an organization
-curl -X GET "https://cloudmc_endpoint/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5/manageable_connections" \
+curl -X GET "https://hypertec.cloud/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5/manageable_connections" \
    -H "MC-Api-Key: your_api_key"
 ```
 
@@ -871,7 +871,7 @@ Attributes | &nbsp;
 `name`<br/>*string* | The name of the service connection.
 `type`<br/>*string* | The type of the service connection. _(e.g. gcp, azure, aws, cloudca, swift, etc.)_
 `serviceCode`<br/>*string* | The globally unique serviceCode that identifies the service connection.
-`status`<br/>*Object* | The status object describing the status of connectivity to this service from CloudMc.
+`status`<br/>*Object* | The status object describing the status of connectivity to this service from Hypertec Cloud.
 `quotas`<br/>*Array[Quotas]* | A list of quotas that can be associated to the service connnection.
 `iconOverrideUrl`<br/>*string* | The icon the overwrites the default icon for the service connection.
 
@@ -893,7 +893,7 @@ The user should have `Connections reseller` permission on the organization. This
 
 ```shell
 # Mark an organization as reseller
-curl -X POST "https://cloudmc_endpoint/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5/mark_reseller" \
+curl -X POST "https://hypertec.cloud/api/v2/organizations/03bc22bd-adc4-46b8-988d-afddc24c0cb5/mark_reseller" \
    -H "MC-Api-Key: your_api_key" \
 ```
 
@@ -908,7 +908,7 @@ Retrieve the identity providers for the organization.
 
 ```shell
 # Retrieve the organization's identity providers
-curl "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/identity_providers" \
+curl "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/identity_providers" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -955,7 +955,7 @@ Retrieve the billing information for an organization.
 
 ```shell
 # Retrieve the organization's billing information
-curl "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billing_info" \
+curl "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billing_info" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -1021,7 +1021,7 @@ Returns an HTTP status code 200, with an empty response body.
 
 ```shell
 # Delete the organization's billing information
-curl -X DELETE "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billing_info" \
+curl -X DELETE "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billing_info" \
    -H "MC-Api-Key: your_api_key"
 ```
 
@@ -1037,7 +1037,7 @@ pricing package.
 
 ```shell
 # Update billable organization info
-curl -X PUT "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billable" \
+curl -X PUT "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billable" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"
@@ -1075,7 +1075,7 @@ Retrieves a list of applicable pricing packages to an organization.
 
 ```shell
 # Retrieve visible organizations
-curl "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/pricing_packages" \
+curl "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/pricing_packages" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -1126,7 +1126,7 @@ Retrieves a list of billing emails configured on the org. These emails will also
 
 ```shell
 # Retrieve billing emails
-curl "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billing_emails" \
+curl "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billing_emails" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -1155,7 +1155,7 @@ Update the list of billing emails configured on the org. These emails will also 
 
 ```shell
 # Update billing emails
-curl "https://cloudmc_endpoint/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billing_emails" \
+curl "https://hypertec.cloud/api/v2/organizations/87895f43-51c1-43cc-b987-7e301bf5b86a/billing_emails" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"
@@ -1184,7 +1184,7 @@ Retrieves a billing cycle for the organization.
 
 ```shell
 # Retrieve billing cycle
-curl "https://cloudmc_endpoint/api/v2/organizations/c01e2bd4-50c4-4ef4-b756-f728823309a4/billing_cycles/8259182d-5234-4a78-adf6-7edc11db2e3b" \
+curl "https://hypertec.cloud/api/v2/organizations/c01e2bd4-50c4-4ef4-b756-f728823309a4/billing_cycles/8259182d-5234-4a78-adf6-7edc11db2e3b" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -1261,7 +1261,7 @@ Updates the organization's billable information with the new pricing package and
 
 ```shell
 # Update billable information
-curl "https://cloudmc_endpoint/api/v2/organizations/c01e2bd4-50c4-4ef4-b756-f728823309a4/billable_info" \
+curl "https://hypertec.cloud/api/v2/organizations/c01e2bd4-50c4-4ef4-b756-f728823309a4/billable_info" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request_body"

@@ -20,7 +20,7 @@ TAGS_ANYMATCH | Applies the role on all organizations that are tagged with at le
 
 ```shell
 # Get additional role of user
-curl -X GET "https://cloudmc_endpoint/api/v2/users/:id/additional_roles" \
+curl -X GET "https://hypertec.cloud/api/v2/users/:id/additional_roles" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json"
 
@@ -74,7 +74,7 @@ Attributes | &nbsp;
 
 ```shell
 # Assign an additional role to user
-curl -X POST "https://cloudmc_endpoint/api/v2/users/:id/additional_roles" \
+curl -X POST "https://hypertec.cloud/api/v2/users/:id/additional_roles" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json"
    -d "[request_body]"
@@ -107,7 +107,7 @@ You will need to have `Users: Manage` permission to execute this operation.
 
 ```shell
 # Remove an additional role from user
-curl -X DELETE "https://cloudmc_endpoint/api/v2/users/:user_id/additional_roles/:id" \
+curl -X DELETE "https://hypertec.cloud/api/v2/users/:user_id/additional_roles/:id" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json"
 

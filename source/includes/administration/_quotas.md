@@ -1,6 +1,6 @@
 ## Quotas
 
-Quotas are used to limit the resource usage on a service connection consumed by an organization. The primary use case for CloudMC is to enforce limited quotas on trial accounts. Quotas can target different resources. For example, number of vCPUs, allocated memory, disk size, network bandwidth, number of public IPs and more.
+Quotas are used to limit the resource usage on a service connection consumed by an organization. The primary use case for Hypertec Cloud is to enforce limited quotas on trial accounts. Quotas can target different resources. For example, number of vCPUs, allocated memory, disk size, network bandwidth, number of public IPs and more.
 
 <!------------------- LIST QUOTAS --------------------->
 
@@ -19,7 +19,7 @@ Optional | &nbsp;
 
 ```shell
 # Retrieve quotas list
-curl "https://cloudmc_endpoint/api/v2/quotas" \
+curl "https://hypertec.cloud/api/v2/quotas" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -120,7 +120,7 @@ QuotaDetail Attributes | &nbsp;
 
 ```shell
 # Retrieve a specific quota
-curl "https://cloudmc_endpoint/api/v2/quotas/:id" \
+curl "https://hypertec.cloud/api/v2/quotas/:id" \
    -H "MC-Api-Key: your_api_key"
 ```
 
@@ -219,7 +219,7 @@ QuotaDetail Attributes | &nbsp;
 `POST /quotas`
 
 ```shell
-curl -X POST "https://cloudmc_endpoint/api/v2/quotas" \
+curl -X POST "https://hypertec.cloud/api/v2/quotas" \
    -H "MC-Api-Key: your_api_key"
 ```
 
@@ -276,7 +276,7 @@ The responses' `data` field contains the created [quota](#administration-quota) 
 `PUT /quotas/:id`
 
 ```shell
-curl -X PUT "https://cloudmc_endpoint/api/v2/quotas" \
+curl -X PUT "https://hypertec.cloud/api/v2/quotas" \
    -H "MC-Api-Key: your_api_key"
 ```
 
@@ -383,7 +383,7 @@ Deletes an existing quota. The parameter `quota_id` is only required when deleti
 
 ```shell
 # Delete a specific quota 
-curl -X DELETE "https://cloudmc_endpoint/api/v2/quotas/:id" \
+curl -X DELETE "https://hypertec.cloud/api/v2/quotas/:id" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -412,7 +412,7 @@ connection owner.
 
 ```shell
 # Makes a specific quota default 
-curl -X POST "https://cloudmc_endpoint/api/v2/quotas/:id/default?service=true&trial=false" \
+curl -X POST "https://hypertec.cloud/api/v2/quotas/:id/default?service=true&trial=false" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns the updated quota when it was successfully made a default for service or trial. 

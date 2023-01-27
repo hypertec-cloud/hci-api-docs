@@ -8,7 +8,7 @@ pipeline {
   options { disableConcurrentBuilds() }
 
   environment {
-    GIT_URL = 'git@github.com:cloudops/cloudmc-api-docs.git'
+    GIT_URL = 'git@github.com:hypertec-cloud/hci-api-docs.git'
   }
 
   stages {
@@ -22,7 +22,7 @@ pipeline {
     stage('Deploy github pages') {
       when {
         expression {
-          env.BRANCH_NAME == 'cmc-dev'
+          env.BRANCH_NAME == 'hci-dev'
         }
       }
       steps{

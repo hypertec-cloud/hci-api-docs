@@ -9,7 +9,7 @@ A volume is a virtual disk that provide storage for your instances. An OS volume
 ```shell
 curl -X GET \
    -H "MC-Api-Key: your_api_key" \
-   "https://cloudmc_endpoint/api/v2/services/compute-on/test_area/volumes"
+   "https://hypertec.cloud/api/v2/services/compute-on/test_area/volumes"
 ```
 > The above command returns a JSON structured like this:
 
@@ -66,7 +66,7 @@ Query Parameters | &nbsp;
 ```shell
 curl -X GET \
    -H "MC-Api-Key: your_api_key" \
-   "https://cloudmc_endpoint/api/v2/services/compute-on/test_area/volumes/1bd672f4-b274-4371-a792-b0a6c6778cc7"
+   "https://hypertec.cloud/api/v2/services/compute-on/test_area/volumes/1bd672f4-b274-4371-a792-b0a6c6778cc7"
 ```
 > The above command returns a JSON structured like this:
 
@@ -117,7 +117,7 @@ curl -X POST \
    -H "Content-Type: application/json" \
    -H "MC-Api-Key: your_api_key" \
    -d "request_body" \
-   "https://cloudmc_endpoint/api/v2/services/compute-on/testing/volumes"
+   "https://hypertec.cloud/api/v2/services/compute-on/testing/volumes"
 ```
 > Request body example:
 
@@ -148,7 +148,7 @@ instanceId<br/>*UUID* | The id of the [instance](#cloudstack-instances) to which
 ```shell
 curl -X DELETE \
    -H "MC-Api-Key: your_api_key" \
-   "https://cloudmc_endpoint/api/v2/services/compute-on/test_area/volumes/e922e5fc-8fee-4688-ad93-c9ef5d7eb685"
+   "https://hypertec.cloud/api/v2/services/compute-on/test_area/volumes/e922e5fc-8fee-4688-ad93-c9ef5d7eb685"
 ```
 
 <code>DELETE /services/<a href="#administration-service-connections">:service_code</a>/<a href="#administration-environments">:environment_name</a>/volumes/:id</code>
@@ -166,7 +166,7 @@ curl -X POST \
    -H "Content-Type: application/json" \
    -H "MC-Api-Key: your_api_key" \
    -d "request_body" \
-   "https://cloudmc_endpoint/api/v2/services/compute-on/testing/volumes/e922e5fc-8fee-4688-ad93-c9ef5d7eb685?operation=attachToInstance"
+   "https://hypertec.cloud/api/v2/services/compute-on/testing/volumes/e922e5fc-8fee-4688-ad93-c9ef5d7eb685?operation=attachToInstance"
 ```
 > Request body example:
 
@@ -195,7 +195,7 @@ curl -X POST \
    -H "Content-Type: application/json" \
    -H "MC-Api-Key: your_api_key" \
    -d "request_body" \
-   "https://cloudmc_endpoint/api/v2/services/compute-on/testing/volumes/e922e5fc-8fee-4688-ad93-c9ef5d7eb685?operation=detachFromInstance"
+   "https://hypertec.cloud/api/v2/services/compute-on/testing/volumes/e922e5fc-8fee-4688-ad93-c9ef5d7eb685?operation=detachFromInstance"
 ```
 
 <code>POST /services/<a href="#administration-service-connections">:service_code</a>/<a href="#administration-environments">:environment_name</a>/volumes/:id?operation=detachFromInstance</code>
@@ -213,7 +213,7 @@ curl -X POST \
    -H "Content-Type: application/json" \
    -H "MC-Api-Key: your_api_key" \
    -d "request_body" \
-   "https://cloudmc_endpoint/api/v2/services/compute-on/testing/volumes/4fe54594-a788-442c-b7a8-0237f7a4f70d?operation=createSnapshotFromVolume"
+   "https://hypertec.cloud/api/v2/services/compute-on/testing/volumes/4fe54594-a788-442c-b7a8-0237f7a4f70d?operation=createSnapshotFromVolume"
 ```
 > Request body example:
 
@@ -241,7 +241,7 @@ Optional | &nbsp;
 ```shell
 
 curl --request POST \
-  --url 'https://cloudmc_endpoint/api/v2/services/cloudstack-aaaa/acs-env-1/volumes/ed30cd74-3e83-473c-9fe3-6b1cb1652f85?operation=resize' \
+  --url 'https://hypertec.cloud/api/v2/services/cloudstack-aaaa/acs-env-1/volumes/ed30cd74-3e83-473c-9fe3-6b1cb1652f85?operation=resize' \
   --header 'Content-Type: application/json' \
   --header 'mc-api-key: your_api_key' \
   --data 'request-body'
@@ -275,7 +275,7 @@ diskOfferingId<br/> *UUID* | The [disk offering](#cloudstack-disk-offerings) ass
 
 ```shell
 curl --request POST \
-  --url 'https://cloudmc_endpoint/api/v2/services/cloudstack-aaaa/acs-env-1/volumes/68b7b465-652e-4f8d-958e-a712427a69a5?operation=resize' \
+  --url 'https://hypertec.cloud/api/v2/services/cloudstack-aaaa/acs-env-1/volumes/68b7b465-652e-4f8d-958e-a712427a69a5?operation=resize' \
   --header 'Content-Type: application/json' \
   --header 'mc-api-key: your_api_key' \
   --data 'request-body'

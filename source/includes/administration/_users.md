@@ -11,7 +11,7 @@ A user account allows users to authenticate to an [organization](#administration
 ```shell
 # Retrieve visible users
 
-curl "https://cloudmc_endpoint/api/v2/users" \
+curl "https://hypertec.cloud/api/v2/users" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -99,7 +99,7 @@ Attributes | &nbsp;
 
 ```shell
 # Retrieve visible user
-curl "https://cloudmc_endpoint/api/v2/users/fdf60a19-980d-4380-acab-914485111305" \
+curl "https://hypertec.cloud/api/v2/users/fdf60a19-980d-4380-acab-914485111305" \
    -H "MC-Api-Key: your_api_key"
 ```
 > The above command returns a JSON structured like this:
@@ -196,7 +196,7 @@ Attributes | &nbsp;
 ```shell
 # Create a user
 
-curl -X POST "https://cloudmc_endpoint/api/v2/users" \
+curl -X POST "https://hypertec.cloud/api/v2/users" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request-body"
@@ -295,7 +295,7 @@ The responses' `data` field contains the created [user](#administration-users) w
 
 ```shell
 # Update a user
-curl -X PUT "https://cloudmc_endpoint/api/v2/users/fdf60a19-980d-4380-acab-914485111305" \
+curl -X PUT "https://hypertec.cloud/api/v2/users/fdf60a19-980d-4380-acab-914485111305" \
    -H "MC-Api-Key: your_api_key" \
    -H "Content-Type: application/json" \
    -d "request-body"
@@ -350,7 +350,7 @@ Delete a specific user. You will need the `Delete an existing user` permission t
 
 ```shell
 # Delete a user
-curl "https://cloudmc_endpoint/api/v2/users/dd01c908-371c-4ec5-9fd7-80b1bfac8975" \
+curl "https://hypertec.cloud/api/v2/users/dd01c908-371c-4ec5-9fd7-80b1bfac8975" \
    -X DELETE -H "MC-Api-Key: your_api_key"
 ```
 
@@ -381,7 +381,7 @@ Response                  | &nbsp;
 ```shell
 # Unlock a user that was locked from the system
 
-curl "https://cloudmc_endpoint/api/v2/users/dd01c908-371c-4ec5-9fd7-80b1bfac8975/unlock" \
+curl "https://hypertec.cloud/api/v2/users/dd01c908-371c-4ec5-9fd7-80b1bfac8975/unlock" \
    -X POST -H "MC-Api-Key: your_api_key"
 
 ```
